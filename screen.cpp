@@ -101,6 +101,6 @@ void screen_write(char *c)
     while(c[i])
     {
         screen_put(c[i]);
+        i++;
     }
-    i++;
 }
