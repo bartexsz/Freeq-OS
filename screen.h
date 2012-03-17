@@ -10,10 +10,22 @@
 
 #include"common.h"
 
-void screen_put(char c);
-void screen_clear();
-void screen_write(char *c);
+class screen
+{
+public:
+    screen();
+    ~screen();
+    void put(char c);
+    void clear();
+    void write(char *c);
+    void scroll();
+    void move_cursor();
+private:
+    u32int y;
+    u32int x;
+    u16int *video_memory;
+    
 
-
+};
 #endif	/* SCREEN_H */
 
