@@ -37,7 +37,7 @@ static void scroll()
 void screen_put(char c)
 {
     u8int backcolour = 0;
-    u8int forecolour = 16;
+    u8int forecolour = 15;
     
     u8int attributeByte = (backcolour << 4) | (forecolour & 0x0F);
     
