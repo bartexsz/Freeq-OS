@@ -1,6 +1,6 @@
 SOURCES=boot.o main.o common.o screen.o
 
-CFLAGS=-nostdlib -nostdinc -fno-builtin -fno-stack-protector
+CPPFLAGS=-nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -fno-exceptions -fno-rtti
 LDFLAGS=-Tlink.ld
 ASFLAGS=-felf
 

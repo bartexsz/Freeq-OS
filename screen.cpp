@@ -12,7 +12,7 @@ screen::~screen()
     
 }
 
-static void screen::move_cursor()
+void screen::move_cursor()
 {
     u16int cursor_location = y*80 + x;
     outb(0x3D4, 14);
@@ -21,7 +21,7 @@ static void screen::move_cursor()
     outb(0x3D5, cursor_location);
 }
 
-static void screen::scroll()
+void screen::scroll()
 {
     u8int attributeByte = (0 /* black*/ << 4) | (15 /*white*/ & 0x0F);
     u16int blank = 0x20 /*space*/ | (attributeByte << 8);

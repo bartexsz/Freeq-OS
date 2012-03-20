@@ -18,12 +18,12 @@ public:
     void put(char c);
     void clear();
     void write(char *c);
-    void scroll();
     void move_cursor();
 private:
     u32int y;
     u32int x;
     u16int *video_memory;
+    void scroll();
     
 
 };
