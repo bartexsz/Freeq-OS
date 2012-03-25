@@ -1,16 +1,18 @@
-SOURCES=boot.o main.o common.o screen.o
-
-CPPFLAGS=-nostdlib -nostdinc -fno-builtin -fno-stack-protector -nostartfiles -nodefaultlibs -fno-exceptions -fno-rtti
+SOURCES= boot.o main.o common.o screen.o gdt_entry.o descrtables.o gdtptr.o gdt.o
+CC = g++
+CFLAGS=-ffreestanding -nostdlib -fno-rtti -fno-exceptions -fno-builtin 
 LDFLAGS=-Tlink.ld
 ASFLAGS=-felf
 
-all: $(SOURCES) link 
+all: 
+	nasm boot.asm $(ASFLAGS)
+	nasm gdt.asm $(ASFLAGS)
+	$(CC) *.cpp $(CFLAGS) -c
+	ld $(LDFLAGS) -o kernel $(SOURCES)
+	
 
 clean:
 	-rm *.o kernel
 
-link:
-	ld $(LDFLAGS) -o kernel $(SOURCES)
-
-.asm.o:
+.asm .o:
 	nasm $(ASFLAGS) $<

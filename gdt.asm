@@ -4,9 +4,9 @@
 ;          Based on code from Bran's kernel development tutorials.
 ;          Rewritten for JamesM's kernel development tutorials.
 
-[GLOBAL gdt_flush]    ; Allows the C code to call gdt_flush().
+[GLOBAL _ZN11descrtables9gdt_flushEj]    ; Allows the C code to call gdt_flush().
 
-gdt_flush:
+_ZN11descrtables9gdt_flushEj:
     mov eax, [esp+4]  ; Get the pointer to the GDT, passed as a parameter.
     lgdt [eax]        ; Load the new GDT pointer
 

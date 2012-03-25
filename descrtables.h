@@ -19,7 +19,7 @@ public:
     gdtptr gdt_pointer;
     void init_gdt();
     void gdt_set_gate(s32int, u32int, u32int, u8int, u8int );
-    void gdt_flush();
+    void gdt_flush(u32int);
     descrtables();
     ~descrtables();
 private:
