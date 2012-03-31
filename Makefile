@@ -1,4 +1,4 @@
-SOURCES= boot.o main.o common.o screen.o gdt_entry.o descrtables.o gdtptr.o gdt.o
+SOURCES= boot.o main.o common.o screen.o gdt_entry.o descrtables.o gdtptr.o gdt.o kernel_main.o
 CC = g++
 CFLAGS=-ffreestanding -nostdlib -fno-rtti -fno-exceptions -fno-builtin 
 LDFLAGS=-Tlink.ld

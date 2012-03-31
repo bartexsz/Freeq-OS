@@ -1,6 +1,6 @@
 /* 
  * File:   descrtables.h
- * Author: bartomiej
+ * Author: Bartłomiej Szcześniak
  *
  * Created on 25 marzec 2012, 13:24
  */
@@ -11,10 +11,13 @@
 #include "gdt_entry.h"
 #include "gdtptr.h"
 #include "common.h"
+#include "screen.h"
 
-class descrtables {
+class descrtables
+{
 public:
     
+    screen console;
     gdt_entry gdt_entries[5];
     gdtptr gdt_pointer;
     void init_gdt();

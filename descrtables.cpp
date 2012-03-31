@@ -1,30 +1,34 @@
 /* 
  * File:   descrtables.cpp
- * Author: bartomiej
+ * Author: Bartłomiej Szcześniak
  * 
  * Created on 25 marzec 2012, 13:24
  */
 
 #include "descrtables.h"
 
+
 descrtables::descrtables() {
+    console.write("Inistialising GDT");
     init_gdt();
-    
 }
 
 descrtables::~descrtables() {
 }
 
 void descrtables::init_gdt(){
+    console.write("setting pointer");
     gdt_pointer.limit = (sizeof(gdt_entry) *5) -1;
     gdt_pointer.base = (u32int)&gdt_entries;
     
+    console.write("setting gates");
     gdt_set_gate(0,0,0,0,0);
     gdt_set_gate(1,0,0xFFFFFFFF, 0x9A, 0xCF);
     gdt_set_gate(2,0,0xFFFFFFFF, 0x92, 0xCF);
     gdt_set_gate(3,0,0xFFFFFFFF, 0xFA, 0xCF);
     gdt_set_gate(4,0,0xFFFFFFFF, 0xF2, 0xCF);
     
+    console.write("flushing gdt");
     gdt_flush((u32int)&gdt_pointer);
 }
 
