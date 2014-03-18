@@ -9,7 +9,7 @@
 
 
 descrtables::descrtables() {
-    console.write("Inistialising GDT");
+    console.write("Initialising GDT\n");
     init_gdt();
 }
 
@@ -17,9 +17,9 @@ descrtables::~descrtables() {
 }
 
 void descrtables::init_gdt(){
-    console.write("setting pointer");
+    console.write("setting pointer\n");
     gdt_pointer.limit = (sizeof(gdt_entry) *5) -1;
-    gdt_pointer.base = (u32int)&gdt_entries;
+    gdt_pointer.base = (u64int)&gdt_entries;
     
     console.write("setting gates");
     gdt_set_gate(0,0,0,0,0);
@@ -28,8 +28,8 @@ void descrtables::init_gdt(){
     gdt_set_gate(3,0,0xFFFFFFFF, 0xFA, 0xCF);
     gdt_set_gate(4,0,0xFFFFFFFF, 0xF2, 0xCF);
     
-    console.write("flushing gdt");
-    gdt_flush((u32int)&gdt_pointer);
+    console.write("flushing gdt\n");
+    gdt_flush((u64int)&gdt_pointer);
 }
 
 void descrtables::gdt_set_gate(s32int num, u32int base, u32int limit, u8int access, u8int gran)

@@ -10,7 +10,7 @@
 kernel_main::kernel_main() {
   main_screen.write("Hello World \n");
   main_screen.write("Freeq OS \n");
-  main_screen.write("by Bartlomiej Szczesniak(aka bartexsz, szcbawokon, Jurij Popov)");
+  main_screen.write("by Bartlomiej Szczesniak(aka bartexsz, szcbawokon, Jurij Popov)\n");
 }
 
 kernel_main::~kernel_main() {
